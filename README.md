@@ -1,75 +1,79 @@
-# Installation on an Arduino Yun
+# Installation on an Arduino Yún
 
-Prepare the micro SD Card
--------------------------
+## Prepare the microSD Card
 
-This tutorial works with linux and osx.
+This tutorial works with GNU/Linux and Mac OS X.
 
 You need:
 
-- A new Arduino Yun wiht Firmware 1.4+
-
-- Micro SD Card with a minimum of 500mb 
-
-- Personal Wifi Network. (If Services like Airplay work, Hybrid Objects should work). 
+- A new Arduino Yún with firmware 1.4+
+- MicroSD Card with at least 500 MB free space
+- Personal Wifi network supporting mDNS (if services like Airplay work, Hybrid Objects should work).
 
 
-Download and unzip the Arduino Yun Image to your computer.
-You will now have a folder with the hybrid.dmg image on your computer.
+Download and unzip the Arduino Yún Image to your computer.
+You will now have a folder with the `hybrid.dmg` image file on your computer.
+Using the terminal (command line), navigate to the folder containing the `hybrid.dmg` file.
 
-Within the terminal, open the folder that stores the hybrid.dmg file.
- 
-With a microSD to SD Card adapter, plug your micro SD Card in your computer.
+### Find the SD card device
 
-Type in the followitng into the terminal:
- 
-		diskutil list
- 
-You will see all the disks that are mounted in your computer.
-Find the one disk that has the capacity of your own SD card.
-For example the name could be "/dev/disk2"
+With a microSD to SD card adapter, plug your microSD card in your computer.
+Enter the following command into the terminal:
 
-Now type in the terminal:
+**Mac OS X**
 
-		diskutil unmountDisk [your SDCard Name]
- 
-!!Make sure that you know the name of your SD Card. If you use the name of another disk connected to your computer, you will overwrite the data on this disk!!
+    diskutil list
 
-All previously stored data on the SD Card will be lost after the following step!!!!
- 
-Once the SD Card is unmounted, clone the image file to the SD Card.
- 
-You can do this step with the following command:
- 
-		sudo dd if=hybrid.dmg of=[your SDCard Name]
- 
-The Terminal will ask for your password.
-Once you have started the process, it can take a few minutes until the terminal responds again.
+**Linux**
 
-You have now successfully prepared the SD Card for your Hybrid Object.
+    sudo fdisk -l
  
- 
-Reset your Arduino
-Now plug the mini SDCard into your Arduino and power it up. 
+You will see all the disks that connected to your computer.
+Find the device name for the disk that has the capacity of your SD card.
+For example the device name could be "/dev/disk2" or "/dev/mmcblk0."
 
-Once the white LED on your Arduino glows, you will find an open WIFI named Arduino followed by some numbers.
+### Unmount the SD card device
+
+**Mac OS X**
+
+    diskutil unmountDisk [your SD card device]
+
+**Linux**
+
+    sudo umount [your SD card device such as /dev/mmcbkl0]
  
+> :warning: **Warning:**  Ensure that you use the correct device name for your SD card. If you use the name of another 
+disk connected to your computer, you will overwrite the data on this disk!  All previously 
+stored data on the SD card will be lost after the image is written.
+ 
+### Transfer the image file contents to the SD card device
+ 
+Enter the following command, replacing "[your SD card device]" as appropriate for your SD card's device name:
+ 
+    sudo dd if=hybrid.dmg of=[your SD card device]
+
+Enter your password if prompted.  It can take several minutes until the transfer completes and the 
+terminal prompt returns.
+
+You have now successfully prepared the SD card for your Hybrid Object.  Remove the SD card from the computer.
+ 
+## Boot from SD card and reset your Arduino
+
+Plug the microSD card into your Arduino and power it up.  Once the white LED on your Arduino glows, 
+you will find an open WiFi network named "Arduino" followed by some numbers.
 Connect to this network.
  
 Open the following page in a web-browser:
  
-arduino.local
+    http://arduino.local
  
-You will be asked for a password, which is "arduino".
- 
-Now go to the bottom of the page and push the reset button.
- 
+Use password "arduino" when prompted.  Scroll to the bottom of the page and push the reset button.
  
 Once the Arduino has reset, your Arduino is a Hybrid Object.
  
-Congratulations!
+**Congratulations!**
  
-Make sure that your computer, iOS-Device and Arduino Yun are in the same private local Network.
-Cooperate Networks are not supported.
+If you have trouble, make sure that your computer, iOS device, and Arduino Yún are in the same
+private local network. Corporate networks are not supported.
  
-Now follow the Tutorial on the Use page. 
+Now follow the tutorial on the "Use" page. 
