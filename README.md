@@ -18,20 +18,25 @@ Using the terminal (command line), navigate to the folder containing the `hybrid
 ### Find the SD card device
 
 With a microSD to SD card adapter, plug your microSD card in your computer.
+Enter the following command into the terminal:
 
-Type in the following into the terminal:
- 
+#### Mac OS X
 		diskutil list
+
+#### Linux
+    sudo fdisk -l
  
-You will see all the disks that are mounted in your computer.
-Find the disk that has the capacity of your SD card.
-For example the device name could be "/dev/disk2."
+You will see all the disks that connected to your computer.
+Find the device name for the disk that has the capacity of your SD card.
+For example the device name could be "/dev/disk2" or "/dev/mmcblk0."
 
 ### Unmount the SD card device
 
-Now type in the terminal:
-
+#### Mac OS X
 		diskutil unmountDisk [your SD card device]
+
+#### Linux
+    sudo umount [your SD card device such as /dev/mmcbkl0]
  
 > :warning: **Warning:**  Ensure that you use the device name of your SD card. If you use the name of another 
 disk connected to your computer, you will overwrite the data on this disk!  All previously 
