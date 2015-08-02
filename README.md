@@ -21,9 +21,11 @@ With a microSD to SD card adapter, plug your microSD card in your computer.
 Enter the following command into the terminal:
 
 **Mac OS X**
+
     diskutil list
 
 **Linux**
+
     sudo fdisk -l
  
 You will see all the disks that connected to your computer.
@@ -33,9 +35,11 @@ For example the device name could be "/dev/disk2" or "/dev/mmcblk0."
 ### Unmount the SD card device
 
 **Mac OS X**
+
     diskutil unmountDisk [your SD card device]
 
 **Linux**
+
     sudo umount [your SD card device such as /dev/mmcbkl0]
  
 > :warning: **Warning:**  Ensure that you use the correct device name for your SD card. If you use the name of another 
