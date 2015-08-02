@@ -12,9 +12,8 @@ You need:
 
 
 Download and unzip the Arduino Yún Image to your computer.
-You will now have a folder with the hybrid.dmg image on your computer.
-
-Within the terminal, open the folder that stores the hybrid.dmg file.
+You will now have a folder with the `hybrid.dmg` image file on your computer.
+Using the terminal (command line), navigate to the folder containing the `hybrid.dmg` file.
 
 ### Find the SD card device
 
@@ -38,21 +37,16 @@ Now type in the terminal:
 disk connected to your computer, you will overwrite the data on this disk!  All previously 
 stored data on the SD card will be lost after the image is written.
  
-### Clone the image file to the SD card
+### Transfer the image file contents to the SD card device
  
-You can do this step with the following command:
+Enter the following command, replacing "[your SD card device]" as appropriate for your SD card's device name:
  
 		sudo dd if=hybrid.dmg of=[your SD card device]
 
-If prompted for your password, enter it.  Once you have started the process, it 
-can take a few minutes until the terminal prompt returns.
+Enter your password if prompted.  It can take several minutes until the transfer completes and the 
+terminal prompt returns.
 
-> **Note:**  In Mac OS X each disk may have two path references in /dev:
-* `/dev/disk#` is a buffered device, which means that data being sent to it undergoes extra processing
-* `/dev/*r*disk#` is a _raw_ device, which is much faster and compatible with the dd utility
-
-You have now successfully prepared the SD card for your Hybrid Object.
- 
+You have now successfully prepared the SD card for your Hybrid Object.  Remove the SD card from the computer.
  
 ## Boot from SD card and reset your Arduino
 
@@ -64,10 +58,7 @@ Open the following page in a web-browser:
  
     http://arduino.local
  
-You will be asked for a password, which is "*arduino*."
- 
-Now go to the bottom of the page and push the reset button.
- 
+Use password "arduino" when prompted.  Scroll to the bottom of the page and push the reset button.
  
 Once the Arduino has reset, your Arduino is a Hybrid Object.
  
